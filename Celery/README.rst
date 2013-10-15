@@ -18,6 +18,7 @@ Choosing a Broker
 Celery requires a solution to send and receive messages, usually this comes in the form of a separate service called a message broker.
 
 There are several choices available, including:
+
 RabbitMQ
 -----------
 RabbitMQ is feature-complete, stable, durable and easy to install. It’s an excellent choice for a production environment. Detailed information about using RabbitMQ with Celery:
@@ -55,6 +56,7 @@ Installing Celery
 Celery is on the Python Package Index (PyPI), so it can be installed with standard Python tools like pip or easy_install:
 
 .. code-block:: bash
+
     $ pip install celery
 
     
