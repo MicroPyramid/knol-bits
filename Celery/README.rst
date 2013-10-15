@@ -101,13 +101,15 @@ If you want to keep track of the tasks’ states, Celery needs to store or send 
 
 For this example you will use the Mongo DB result backend, which sends states as messages. The backend is specified via CELERY_RESULT_BACKEND setting :
 
-CELERY_RESULT_BACKEND = "mongodb"
-CELERY_MONGODB_BACKEND_SETTINGS = {
-    "host": "192.168.1.100",
-    "port": 30000,
-    "database": "mydb",
-    "taskmeta_collection": "my_taskmeta_collection",
-}
+.. code-block:: python
+	
+	CELERY_RESULT_BACKEND = "mongodb"
+	CELERY_MONGODB_BACKEND_SETTINGS = {
+	    "host": "192.168.1.100",
+	    "port": 30000,
+	    "database": "mydb",
+	    "taskmeta_collection": "my_taskmeta_collection",
+	}
 
 
 To read more about result backends please see http://docs.celeryproject.org/en/latest/userguide/tasks.html#task-result-backends.
@@ -146,29 +148,38 @@ The default configuration should be good enough for most uses, but there’s man
 
 The configuration can be set on the app directly or by using a dedicated configuration module. As an example you can configure the default serializer used for serializing task payloads by changing the CELERY_TASK_SERIALIZER setting:
 
-celery.conf.CELERY_TASK_SERIALIZER = 'json'
+.. code-block:: python
+
+	celery.conf.CELERY_TASK_SERIALIZER = 'json'
 
 For larger projects using a dedicated configuration module is useful, in fact you are discouraged from hard coding periodic task intervals and task routing options, as it is much bett
 
-CELERY_ROUTES = {
-    'tasks.add': 'low-priority',
-}
+.. code-block:: python
+
+	CELERY_ROUTES = {
+	    'tasks.add': 'low-priority',
+	}
+	
 Or instead of routing it you could rate limit the task instead, so that only 10 tasks of this type can be processed in a minute (10/m):
 
-
-CELERY_ANNOTATIONS = {
-    'tasks.add': {'rate_limit': '10/m'}
-}
+.. code-block:: python
+	
+	CELERY_ANNOTATIONS = {
+	    'tasks.add': {'rate_limit': '10/m'}
+	}
+	
 If you are using RabbitMQ, Redis or MongoDB as the broker then you can also direct the workers to set a new rate limit for the task at runtime:
 
-$ celery control rate_limit tasks.add 10/m
-worker.example.com: OK
-    new rate limit set successfully
-See Routing Tasks to read more about task routing, and the CELERY_ANNOTATIONS setting for more about annotations, or Monitoring and Management Guide for more about remote control commands, and how to monitor what your workers are doing.
+.. code-block:: python
+	
+	$ celery control rate_limit tasks.add 10/m
+	worker.example.com: OK
+	    new rate limit set successfully
+	    
 
 Running the worker with supervisor
 ----------------------------------
-In production you will want to run the worker in the background as a daemon. To do this you need to use the tools provided like supervisord.
+In production you will want to run the worker in the background as a daemon and some times there may be a chance of stopping of celery worker automatically then it should be restarted automatically. To do thes tasks you need to use the tools provided like supervisord.
 
 First, you need to install supervisor in your virtualenv and generate a configuration file.
 
@@ -181,6 +192,7 @@ First, you need to install supervisor in your virtualenv and generate a configur
 Next, just add the following section in configuration file:
 
 .. code-block:: bash
+
     [program:celeryd]
     command=python manage.py celery worker -l info 
     stdout_logfile=/path/to/your/logs/celeryd.log
@@ -206,21 +218,25 @@ Running supervisor during startup or booting time
 create a file /etc/init.d/supervisord and configure your actual supervisord.conf in which celery is configured in DAEMON_ARGS as follows
 
 .. code-block:: bash
+
     DAEMON_ARGS="-c /path/to/supervisord.conf"
 
 to run it
 
 .. code-block:: bash
+
     sudo chmod +x /etc/init.d/supervisord
 
 and to automatically schedule it, do
 
 .. code-block:: bash
+
     sudo update-rc.d supervisord defaults
 
 To Stop and Start the service
 
 .. code-block:: bash
+
     service supervisord stop
     service supervisord start
 
