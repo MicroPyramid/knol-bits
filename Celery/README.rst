@@ -8,6 +8,8 @@ celery communicates via messages using a  broker to mediate between workers and 
 
 Usage
 =====
+The following are the basic steps to configue and use celery
+
 - Choosing and installing a message broker.
 - Installing Celery and creating your first task
 - Starting the worker and calling tasks.
@@ -41,6 +43,20 @@ There are several choices available, including:
 
     In addition to the above, there are other experimental transport implementations to choose from, including Amazon SQS, Using MongoDB and IronMQ.
 
+- Out of all the message brokers it is better to use RabbitMQ. But for faster completion of tasks it is better to go with MongoDB
+	
+	For the MongoDB support you have to install additional dependencies. You can install both Celery and these dependencies in one go using either the celery-with-mongodb, or the django-celery-with-mongodb bundles:
+	
+	.. code-block:: python
+	
+		$ pip install -U celery-with-mongodb
+
+	Configuration is easy, set the transport, and configure the location of your MongoDB database as ``BROKER_URL`` in settings.py:
+
+	.. code-block:: python
+	
+		BROKER_URL = 'mongodb://userid:password@hostname:port/database_name'
+
 Installing Celery
 -----------------
 Celery is on the Python Package Index (PyPI), so it can be installed with standard Python tools like pip or easy_install:
@@ -51,7 +67,7 @@ Celery is on the Python Package Index (PyPI), so it can be installed with standa
     
 - Django framework configuration
 
-	You can install django-celery either via the Python Package Index (PyPI) or from source.
+	The django-celery library defines result backends that uses the Django ORM and Django Cache frameworks.You can install django-celery either via the Python Package Index (PyPI) or from source.
 
 	To install using pip,:
 	
@@ -171,7 +187,8 @@ If the task raised an exception you can also gain access to the original traceba
 
 See celery.result for the complete result object reference.
 
-Configuration
+Other Configurations
+---------------------
 Celery, like a consumer appliance doesn’t need much to be operated. It has an input and an output, where you must connect the input to a broker and maybe the output to a result backend if so wanted. But if you look closely at the back there’s a lid revealing loads of sliders, dials and buttons: this is the configuration.
 
 The default configuration should be good enough for most uses, but there’s many things to tweak so Celery works just the way you want it to. Reading about the options available is a good idea to get familiar with what can be configured. You can read about the options in the the Configuration and defaults reference.
