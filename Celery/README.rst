@@ -21,31 +21,25 @@ There are several choices available, including:
 
 - RabbitMQ
 
-RabbitMQ is feature-complete, stable, durable and easy to install. It’s an excellent choice for a production environment. Detailed information about using RabbitMQ with Celery:
+    RabbitMQ is feature-complete, stable, durable and easy to install. It’s an excellent choice for a production environment. Detailed information about using RabbitMQ with Celery:
 
-http://docs.celeryproject.org/en/latest/getting-started/brokers/rabbitmq.html#broker-rabbitmq
-If you are using Ubuntu or Debian install RabbitMQ by executing this command:
-
-$ sudo apt-get install rabbitmq-server
-
-And don’t worry if you’re not running Ubuntu or Debian, you can go to this website to find similarly simple installation instructions for other platforms, including Microsoft Windows:
-
-http://www.rabbitmq.com/download.html
+    http://docs.celeryproject.org/en/latest/getting-started/brokers/rabbitmq.html#broker-rabbitmq
 
 - Redis
 
-Redis is also feature-complete, but is more susceptible to data loss in the event of abrupt termination or power failures.
+    Redis is also feature-complete, but is more susceptible to data loss in the event of abrupt termination or power failures.
 
 - Using a database
 
-Using a database as a message queue is not recommended, but can be sufficient for very small installations. Your options include:
+    Using a database as a message queue is not recommended, but can be sufficient for very small installations. Your options include:
 
-Using SQLAlchemy
-Using the Django Database
+    Using SQLAlchemy
+
+    Using the Django Database
 
 - Other brokers
 
-In addition to the above, there are other experimental transport implementations to choose from, including Amazon SQS, Using MongoDB and IronMQ.
+    In addition to the above, there are other experimental transport implementations to choose from, including Amazon SQS, Using MongoDB and IronMQ.
 
 Installing Celery
 =================
@@ -58,20 +52,17 @@ Celery is on the Python Package Index (PyPI), so it can be installed with standa
     
 Application
 -------------
-The first thing you need is a Celery instance, this is called the celery application or just app in short. Since this instance is used as the entry-point for everything you want to do in Celery, like creating tasks and managing workers, it must be possible for other modules to import it.
+The first thing you need is a 'tasks.py' and create a task using '@task' decorator, it must be possible for other modules to import it.
 
-In this tutorial you will keep everything contained in a single module, but for larger projects you want to create a dedicated module.
 
 Let’s create the file tasks.py:
 
-from celery import Celery
+.. code-block:: bash
 
-celery = Celery('tasks', broker='amqp://guest@localhost//')
-
-@celery.task
-def add(x, y):
-    return x + y
-The first argument to Celery is the name of the current module, this is needed so that names can be automatically generated, the second argument is the broker keyword argument which specifies the URL of the message broker you want to use, using RabbitMQ here, which is already the default option. See Choosing a Broker above for more choices, e.g. for Redis you can use redis://localhost, or MongoDB: mongodb://localhost.
+    from celery.decorators import task
+    @task
+    def add(x, y):
+        return x + y
 
 You defined a single task, called add, which returns the sum of two numbers.
 
@@ -87,6 +78,7 @@ $  celery worker --help
 There also several other commands available, and help is also available:
 
 $ celery help
+
 Calling the task
 ----------------
 To call our task you can use the delay() method.
