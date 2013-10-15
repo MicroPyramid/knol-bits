@@ -48,6 +48,36 @@ Celery is on the Python Package Index (PyPI), so it can be installed with standa
 .. code-block:: bash
 
     $ pip install celery
+    
+-Django framework configuration
+
+	You can install django-celery either via the Python Package Index (PyPI) or from source.
+
+	To install using pip,:
+	
+	.. code-block:: bash
+
+		$ pip install django-celery
+		
+	To install using easy_install,:
+	
+	.. code-block:: bash
+
+		$ easy_install django-celery
+	
+	To enable django-celery for your project you need to add djcelery to ``INSTALLED_APPS`` :
+	
+	.. code-block:: python
+
+		INSTALLED_APPS += ("djcelery", )
+	
+	then add the following lines to your settings.py:
+	
+	.. code-block:: python
+
+		import djcelery
+		djcelery.setup_loader()
+
 
     
 Application
