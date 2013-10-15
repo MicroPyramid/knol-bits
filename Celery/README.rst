@@ -49,7 +49,7 @@ Celery is on the Python Package Index (PyPI), so it can be installed with standa
 
     $ pip install celery
     
--Django framework configuration
+- Django framework configuration
 
 	You can install django-celery either via the Python Package Index (PyPI) or from source.
 
