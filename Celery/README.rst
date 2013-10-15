@@ -19,36 +19,32 @@ Celery requires a solution to send and receive messages, usually this comes in t
 
 There are several choices available, including:
 
-RabbitMQ
------------
+- RabbitMQ
+
 RabbitMQ is feature-complete, stable, durable and easy to install. It’s an excellent choice for a production environment. Detailed information about using RabbitMQ with Celery:
 
-Using RabbitMQ
+http://docs.celeryproject.org/en/latest/getting-started/brokers/rabbitmq.html#broker-rabbitmq
 If you are using Ubuntu or Debian install RabbitMQ by executing this command:
 
 $ sudo apt-get install rabbitmq-server
-When the command completes the broker is already running in the background, ready to move messages for you: Starting rabbitmq-server: SUCCESS.
 
 And don’t worry if you’re not running Ubuntu or Debian, you can go to this website to find similarly simple installation instructions for other platforms, including Microsoft Windows:
 
 http://www.rabbitmq.com/download.html
 
-Redis
-------
-Redis is also feature-complete, but is more susceptible to data loss in the event of abrupt termination or power failures. Detailed information about using Redis:
+- Redis
 
-Using Redis
+Redis is also feature-complete, but is more susceptible to data loss in the event of abrupt termination or power failures.
 
-Using a database
------------------
+- Using a database
+
 Using a database as a message queue is not recommended, but can be sufficient for very small installations. Your options include:
 
 Using SQLAlchemy
 Using the Django Database
-If you’re already using a Django database for example, using it as your message broker can be convenient while developing even if you use a more robust system in production.
 
-Other brokers
---------------
+- Other brokers
+
 In addition to the above, there are other experimental transport implementations to choose from, including Amazon SQS, Using MongoDB and IronMQ.
 
 Installing Celery
