@@ -55,7 +55,9 @@ Installing Celery
 Celery is on the Python Package Index (PyPI), so it can be installed with standard Python tools like pip or easy_install:
 
 .. code-block:: bash
-$ pip install celery
+    $ pip install celery
+
+    
 Application
 -------------
 The first thing you need is a Celery instance, this is called the celery application or just app in short. Since this instance is used as the entry-point for everything you want to do in Celery, like creating tasks and managing workers, it must be possible for other modules to import it.
