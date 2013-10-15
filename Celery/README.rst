@@ -111,21 +111,26 @@ To read more about result backends please see http://docs.celeryproject.org/en/l
 Now with the result backend configured, let’s call the task again. This time you’ll hold on to the AsyncResult instance returned when you call a task:
 
 result = add.delay(4, 4)
+
 The ready() method returns whether the task has finished processing or not:
 
 >>> result.ready()
 False
+
 You can wait for the result to complete, but this is rarely used since it turns the asynchronous call into a synchronous one:
 
 >>> result.get(timeout=1)
 8
+
 In case the task raised an exception, get() will re-raise the exception, but you can override this by specifying the propagate argument:
 
 >>> result.get(propagate=True)
+
 If the task raised an exception you can also gain access to the original traceback:
 
 >>> result.traceback
 ...
+
 See celery.result for the complete result object reference.
 
 Configuration
@@ -213,8 +218,8 @@ To Stop and Start the service
     service supervisord stop
     service supervisord start
 
-using upstart
--------------
+Running supervisor during startup or booting time using upstart
+---------------------------------------------------------------
 Create a new file /etc/init/supervisor.conf. Its content should look like this:
 
 .. code-block:: bash
