@@ -70,7 +70,9 @@ Starting the worker
 -------------------
 You now you can run the worker by executing the following command :
 
-$ python manage.py celery worker --loglevel=info
+.. code-block:: bash
+
+	$ python manage.py celery worker --loglevel=info
 
 
 Calling the task
@@ -80,14 +82,16 @@ To call our task you can use the ``delay()`` method which gives greater control 
 First import the corresponding task from 'tasks.py'
 
 .. code-block:: python
+
     from tasks import add
 
 call the ``delay()`` method with the task
 
 .. code-block:: python
+
     add.delay(4, 4)
     
-The task has now been will be processed by the worker you are going to start, and you can verify that by looking at the workers console output.
+The task has now been will be processed by the worker that you are going to start, and you can verify that by looking at the workers console output.
 
 Calling a task returns an AsyncResult instance, which can be used to check the state of the task, wait for the task to finish or get its return value (or if the task failed, the exception and traceback). But this isn’t enabled by default, and you have to configure Celery to use a result backend.
 
@@ -110,7 +114,9 @@ To read more about result backends please see http://docs.celeryproject.org/en/l
 
 Now with the result backend configured, let’s call the task again. This time you’ll hold on to the AsyncResult instance returned when you call a task:
 
-result = add.delay(4, 4)
+.. code-block:: python
+
+	result = add.delay(4, 4)
 
 The ready() method returns whether the task has finished processing or not:
 
