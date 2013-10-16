@@ -28,6 +28,8 @@ Bundle 'gmarik/vundle'
 Bundle 'fisadev/vim-debug.vim'
 " Better file browser
 Bundle 'scrooloose/nerdtree'
+" Html editor
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Code commenter
 Bundle 'scrooloose/nerdcommenter'
 " Class/module browser
