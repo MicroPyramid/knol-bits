@@ -7,3 +7,4 @@ A curated list of awesome **Linux**, **Django**, **Python**,  **AWS** apps, reso
 - [**Amazon-Web-Services**](Amazon-Web-Serices/)
 - [**JavaScript**](JavaScript/)
 - [**WebDesign**](WebDesign/)
+- [**Software Development**](Software-Development/)
