@@ -9,3 +9,4 @@ A curated list of awesome **Linux**, **Django**, **Python**,  **AWS** apps, reso
 - [**WebDesign**](WebDesign/)
 - [**Programming**](Programming/)
 - [**Software Development**](Software-Development/)
+- [**Software Recommendations**](software-recommendations/)
