@@ -4,7 +4,14 @@ A curated list of awesome **Linux** apps, projects, resources, links and website
 ## Learning Resources
 
 ## Apps
-- [leveros](https://github.com/leveros/leveros) - open-source cloud platform to build and deploy microservice-oriented backends.
+- Code Editors
+  - [Emacs](https://www.gnu.org/software/emacs/) An extensible, customizable, free/libre text editor
+  - [Vim](http://www.vim.org/) is a highly configurable text editor built to enable efficient text editing
+- Image Editor
+  - [Gimp](http://www.gimp.org/) is a cross-platform image editor.
+- Window Managers
+  - [i3](http://i3wm.org/)i3 is a tiling window manager.
+  - [Xmonad](http://xmonad.org/) xmonad is a dynamically tiling X11 window manager that is written and configured in Haskell.
 
 ## Other Links
 - [Awesome-Linux](https://github.com/aleksandar-todorovic/awesome-linux) awesome resources where you can learn more about Linux
@@ -12,3 +19,4 @@ A curated list of awesome **Linux** apps, projects, resources, links and website
 ## Articles
 
 ## Websites
+- [commandlinefu](http://www.commandlinefu.com/) All Linux commands

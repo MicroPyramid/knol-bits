@@ -10,3 +10,6 @@ A curated list of awesome **Web Design** projects, resources, links and websites
 - [wtfhtmlcss](http://wtfhtmlcss.com/) commonly frustrating HTML and CSS quandaries
 
 ## Free Templates
+
+## Image Slider
+- [idealimageslider](https://github.com/gilbitron/Ideal-Image-Slider) Quite simply the ideal Image Slider in vanilla JS.
