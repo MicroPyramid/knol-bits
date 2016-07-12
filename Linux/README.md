@@ -10,8 +10,8 @@ A curated list of awesome **Linux** apps, projects, resources, links and website
 - Image Editor
   - [Gimp](http://www.gimp.org/) is a cross-platform image editor.
 - Window Managers
-  - [i3](http://i3wm.org/)i3 is a tiling window manager.
-  - [Xmonad](http://xmonad.org/) xmonad is a dynamically tiling X11 window manager that is written and configured in Haskell.
+  - [i3](http://i3wm.org/) is a tiling window manager.
+  - [Xmonad](http://xmonad.org/) is a dynamically tiling X11 window manager that is written and configured in Haskell.
 
 ## Other Links
 - [Awesome-Linux](https://github.com/aleksandar-todorovic/awesome-linux) awesome resources where you can learn more about Linux
