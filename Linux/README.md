@@ -13,6 +13,9 @@ A curated list of awesome **Linux** apps, projects, resources, links and website
   - [i3](http://i3wm.org/) is a tiling window manager.
   - [Xmonad](http://xmonad.org/) is a dynamically tiling X11 window manager that is written and configured in Haskell.
 
+## MongoDb
+Instructions to install mongodb on linux 16.04 [mongo](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04)
+
 ## Other Links
 - [Awesome-Linux](https://github.com/aleksandar-todorovic/awesome-linux) awesome resources where you can learn more about Linux
 
